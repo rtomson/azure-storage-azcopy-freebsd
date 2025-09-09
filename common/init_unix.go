@@ -1,5 +1,4 @@
-//go:build linux || darwin
-// +build linux darwin
+//go:build linux || darwin || freebsd
 
 // Copyright © 2025 Microsoft <wastore@microsoft.com>
 //

@@ -1,4 +1,4 @@
-//go:build linux || darwin
+//go:build freebsd
 
 // Copyright © 2017 Microsoft <wastore@microsoft.com>
 //

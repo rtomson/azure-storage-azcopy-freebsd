@@ -24,8 +24,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+
 	"github.com/Azure/azure-storage-azcopy/v10/azcopy"
-	"github.com/Azure/azure-storage-azcopy/v10/testSuite/cmd"
+
+	// "github.com/Azure/azure-storage-azcopy/v10/testSuite/cmd"
 	"log"
 	"net/http"
 	"os"
@@ -218,10 +220,10 @@ func Initialize(resumeJobID common.JobID, isBench bool, shouldWarn bool) (err er
 
 	glcm.SetForceLogging()
 
-	if shouldWarn {
-		currPid := os.Getpid()
-		AsyncWarnMultipleProcesses(cmd.GetAzCopyAppPath(), currPid)
-	}
+	// if shouldWarn {
+	// 	currPid := os.Getpid()
+	// 	AsyncWarnMultipleProcesses(common.getAzCopyAppPath(), currPid)
+	// }
 
 	// For benchmarking, try to autotune if possible, otherwise use the default values
 	if jobsAdmin.JobsAdmin != nil && isBench {

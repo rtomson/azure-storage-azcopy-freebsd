@@ -1,5 +1,3 @@
-//go:build !freebsd
-
 // Copyright © 2017 Microsoft <wastore@microsoft.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,8 +34,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity/cache"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
@@ -705,14 +701,14 @@ func (credInfo *OAuthTokenInfo) GetDeviceCodeCredential() (azcore.TokenCredentia
 		return nil, err
 	}
 	var persistentCache azidentity.Cache
-	if credInfo.Persist {
-		persistentCache, err = cache.New(&cache.Options{
-			Name: TokenCache,
-		})
-		if err != nil {
-			return nil, err
-		}
-	}
+	// if credInfo.Persist {
+	// 	persistentCache, err = cache.New(&cache.Options{
+	// 		Name: TokenCache,
+	// 	})
+	// 	if err != nil {
+	// 		return nil, err
+	// 	}
+	// }
 	// Read the record
 	record := IffNotNil(credInfo.DeviceCodeInfo, azidentity.AuthenticationRecord{})
 	tc, err := azidentity.NewDeviceCodeCredential(&azidentity.DeviceCodeCredentialOptions{

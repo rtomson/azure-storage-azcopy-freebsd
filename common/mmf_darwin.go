@@ -1,4 +1,4 @@
-// +build linux darwin
+//go:build linux || darwin
 
 // Copyright © 2017 Microsoft <wastore@microsoft.com>
 //
